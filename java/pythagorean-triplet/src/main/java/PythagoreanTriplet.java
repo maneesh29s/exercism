@@ -19,9 +19,9 @@ public class PythagoreanTriplet{
         if (this == o) return true;
         if (!(o instanceof PythagoreanTriplet)) return false;
         PythagoreanTriplet other = (PythagoreanTriplet) o;
-        return a == other.a &&
+        return (a == other.a &&
                 b == other.b &&
-                c == other.c;
+                c == other.c);
     }
 
     static TripletBuilder makeTripletsList(){
@@ -43,27 +43,28 @@ public class PythagoreanTriplet{
         }
 
         List<PythagoreanTriplet> build() {
-            List<PythagoreanTriplet> tripletList = new ArrayList<PythagoreanTriplet>();
+            List<PythagoreanTriplet> tripletList = new ArrayList<>();
 
-//            for (int a = 1; a <= factor / 2; a++)
-//                for (int b = a + 1; b <= (factor - a) / 2; b++)
-//                    if (b != a) {
-//                        int c = sum - (a + b);
+            for (int a = 1; a <= factor / 2; a++)
+                for (int b = a + 1; b <= factor/ 2; b++)
+                    if (b != a)
+                    {
+                        int c = sum - (a + b);
 
-//                        if (c != b)
-//                            if (a * a + b * b == c * c)
-//                                tripletList.add(new PythagoreanTriplet(a, b, c));
-//                    }
+                        if (c != b)
+                            if (a * a + b * b == c * c)
+                                tripletList.add(new PythagoreanTriplet(a, b, c));
+                    }
 
-            for (int cc = (int) (floor(factor/ 2)-1); cc > (int) (sum*(sqrt(2)-1)); cc-- )
-            {
-                var D = sqrt(cc*cc + 2*cc*sum - sum*sum);
-                if (D == floor(D) && D == ceil(D) ){
-                    int aa = (int) ((sum-cc+D)/2);
-                    int bb = (int) ((sum-cc-D)/2);
-                    tripletList.add(new PythagoreanTriplet(aa,bb,cc));
-                }
-            }
+//            for (int cc = (int) (floor(factor/ 2)-1); cc > (int) (sum*(sqrt(2)-1)); cc-- )
+//            {
+//                var D = sqrt(cc*cc + 2*cc*sum - sum*sum);
+//                if (D == floor(D) && D == ceil(D) ){
+//                    int aa = (int) ((sum-cc+D)/2);
+//                    int bb = (int) ((sum-cc-D)/2);
+//                    tripletList.add(new PythagoreanTriplet(aa,bb,cc));
+//                }
+//            }
 
             return tripletList;
         }

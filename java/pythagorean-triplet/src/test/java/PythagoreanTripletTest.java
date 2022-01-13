@@ -61,7 +61,7 @@ public class PythagoreanTripletTest {
         assertEquals(expected, actual);
     }
 
-    @Ignore("Remove to run test")
+//    @Ignore("Remove to run test")
     @Test
     public void tripletsWhoseSumIs90() {
         List<PythagoreanTriplet> actual
